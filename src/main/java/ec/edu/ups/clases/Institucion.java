@@ -1,5 +1,6 @@
 package ec.edu.ups.clases;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Institucion {
@@ -12,12 +13,11 @@ public class Institucion {
 
     public Institucion(){}
 
-    public Institucion(int id, String nombreInstitucion, List<String> sedes, Direccion direccion, List<Asignacion> asignaciones){
+    public Institucion(int id, String nombreInstitucion){
         this.id = id;
         this.nombreInstitucion = nombreInstitucion;
-        this.sedes = sedes;
-        this.direccion = direccion;
-        this.asignaciones = asignaciones;
+        this.sedes = new ArrayList<>();
+        this.asignaciones = new ArrayList<>();
     }
 
     public int getId() {
@@ -47,10 +47,10 @@ public class Institucion {
     public Direccion getDireccion() {
         return direccion;
     }
-
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
+    public void addDireccion(String callePrincipal, String calleSecundaria, String numeracion, String pais, String provincia, String ciudad, String tipoDireccion){
+        this.direccion = new Direccion(callePrincipal, calleSecundaria, numeracion, pais, provincia, ciudad, tipoDireccion);
     }
+
 
     public List<Asignacion> getAsignaciones() {
         return asignaciones;
